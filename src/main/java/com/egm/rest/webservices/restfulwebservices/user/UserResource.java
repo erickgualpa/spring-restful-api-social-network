@@ -15,6 +15,7 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -91,8 +92,8 @@ public class UserResource {
 	}
 	
 	@GetMapping(path = "/hello-world-i18n")
-	public String helloWorldi18n(@RequestHeader(name="Accept-Language", required=false) Locale locale) {
-		return messageSource.getMessage("good.morning.message", null, locale);
+	public String helloWorldi18n() {
+		return messageSource.getMessage("good.morning.message", null, LocaleContextHolder.getLocale());
 	}
 
 }
