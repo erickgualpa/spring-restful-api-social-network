@@ -1,4 +1,4 @@
-package com.egm.rest.webservices.restfulwebservices.post;
+package com.egm.rest.webservices.restfulwebservices.user;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.egm.rest.webservices.restfulwebservices.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Post {
@@ -17,6 +18,7 @@ public class Post {
 	private String description;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JsonIgnore
 	private User user;
 	
 	public Integer getId() {
